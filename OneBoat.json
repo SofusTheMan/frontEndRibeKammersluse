@@ -1,0 +1,50 @@
+{
+    "checkout": {
+        "integrationType": "EmbeddedCheckout",
+        "url": "https://ribekammersluse.com/checkout.php",
+        "termsUrl": "https://ribekammersluse.com/terms.html",
+        "appearance": {
+            "displayOptions": {
+                "showOrderSummary": true
+            },
+            "textOptions": {
+                "completePaymentButtonText": "purchase"
+            }
+
+        }
+    },
+    "order": {
+        "items": [
+            {
+                "reference": "single-boat",
+                "name": "Boats (75 kr per boat)",
+                "quantity": 1,
+                "unit": "Boats",
+                "unitPrice": 7500,
+                "grossTotalAmount": 7500,
+                "netTotalAmount": 7500
+            }
+        ],
+        "amount": 7500,
+        "currency": "DKK",
+        "reference": "Demo Order"
+    },
+    "paymentMethodsConfiguration": [
+        {
+            "name": "Visa",
+            "enabled": true
+        },
+        {
+            "name": "MasterCard",
+            "enabled": true
+        },
+        {
+            "name": "Dankort",
+            "enabled": true
+        },
+        {
+            "name": "MobilePay",
+            "enabled": true
+        }
+    ]
+}
