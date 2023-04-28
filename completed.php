@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set('UTC');
 
-
 if (!isset($_GET['paymentId'])) {
     header('Location: index.php');
     exit;
@@ -42,12 +41,10 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 
 // Access the purchased items in the payment info object
 if (isset($paymentInfo->payment->charges[0]->orderItems[0])) {
-    if ($paymentInfo->payment->orderDetails->reference === "notused"){
+    if ($paymentInfo->payment->orderDetails->reference === "notused") {
         $purchasedItems = $paymentInfo->payment->charges[0]->orderItems[0];
 
         $unit = explode("_", $purchasedItems->unit);
-
-        
 
         $url = 'localhost:8888/';
 
