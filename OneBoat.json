@@ -2,7 +2,7 @@
     "checkout": {
         "integrationType": "EmbeddedCheckout",
         "url": "https://ribekammersluse.com/checkout.php",
-        "termsUrl": "https://ribekammersluse.com/terms.html",
+        "termsUrl": "https://ribekammersluse.com/terms.php",
         "appearance": {
             "displayOptions": {
                 "showOrderSummary": true
@@ -11,7 +11,8 @@
                 "completePaymentButtonText": "purchase"
             }
 
-        }
+        },
+        "charge": true
     },
     "order": {
         "items": [
@@ -27,7 +28,7 @@
         ],
         "amount": 7500,
         "currency": "DKK",
-        "reference": "Demo Order"
+        "reference": "notused"
     },
     "paymentMethodsConfiguration": [
         {

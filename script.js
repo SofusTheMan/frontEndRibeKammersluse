@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     const checkout = new Dibs.Checkout(checkoutOptions);
     checkout.on('payment-completed', function (response) {
-      window.location = 'completed.php';
+      window.location = 'completed.php?paymentId=' + paymentId;
     });
   } else {
     console.log("Expected a paymentId");   // No paymentId provided, 

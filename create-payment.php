@@ -7,17 +7,18 @@ $data = json_decode($payload, true);
 $tag = $_POST['tag'];
 $num_boats = $_POST['num_boats'];
 
+$lift="_".$_POST["liftDriveBridge"]."_".$_POST["liftWalkBridge"];
+
 if ($tag === 'multi-boat') {
     // Calculate price based on number of boats
     $price_per_boat = 7500;
-    $price = $price_per_boat * $num_boats;
     
 
     // Modify order items quantity, grossTotalAmount, and netTotalAmount
-    $data['order']['items'][0]['quantity'] = $num_boats;
+    $data['order']['items'][0]['quantity'] = $num_boats<100?$num_boats:100;
     $data['order']['items'][0]['grossTotalAmount'] = $price_per_boat * $num_boats;
     $data['order']['items'][0]['netTotalAmount'] = $price_per_boat * $num_boats;
-
+    $data['order']['items'][0]['unit'] = "multi-boat".$lift;
     // Add discount item
     $discount_item = array(
         'reference' => 'multi-boat-discount',
@@ -35,10 +36,13 @@ if ($tag === 'multi-boat') {
 
 }else{
     if ($tag === "single-boat"){
+        $data['order']['items'][0]['name'] = "Boat (50 kr)";
+        $data['order']['items'][0]['unit'] = "single-boat".$lift;
         $price = 7500;
     }else{
         $price = 5000;
         $data['order']['items'][0]['name'] = "Kørebro (50 kr)";
+        $data['order']['items'][0]['unit'] = "korebro".$lift;
     }
     $num_boats = 1;
     $data['order']['items'][0]['reference'] = $tag;
